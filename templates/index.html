@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UARedir</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+    </style>
+</head>
+<body>
+    <h1>UARedir</h1>
+    <h3>A link shortener supporting advanced redirection based on User Agent. Have a look at our most popular links.</h3>
+    <table>
+        <thead>
+            <th>URL</th>
+            <th>Uses</th>
+        </thead>
+        <tbody>
+            {% for link in top %}
+                <tr>
+                    <td><a href="{{ link['key'] }}">{{ link['url']|truncate(20, True) }}</a> (/{{ link['key'] }})</td>
+                    <td>{{ link['uses'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
